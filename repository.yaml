@@ -1,0 +1,3 @@
+name: Home Assistant add-ons repository for Prometheus SNMP Exporter
+url: https://github.com/falzm/home-assistant-addon-prometheus_snmp_exporter
+maintainer: Marc Falzon

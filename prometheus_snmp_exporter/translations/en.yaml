@@ -1,0 +1,5 @@
+---
+configuration:
+  cmdline_extra_args:
+    name: Command line extra arguments
+    description: Extra arguments to pass to the "snmp_exporter" command at startup (see https://github.com/prometheus/snmp_exporter for more information)

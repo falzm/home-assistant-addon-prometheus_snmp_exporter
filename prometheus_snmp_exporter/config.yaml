@@ -1,0 +1,25 @@
+---
+name: "Prometheus SNMP Exporter"
+slug: prometheus_snmp_exporter
+description: "Prometheus snmp exporter for hardware and OS metrics"
+version: "0.1.0"
+url: "https://github.com/falzm/home-assistant-addon-prometheus_snmp_exporter"
+arch: ["amd64", "aarch64", "armv7"]
+startup: "services"
+init: false
+webui: "[PROTO:enable_tls]://[HOST]:[PORT:9116]"
+apparmor: false
+
+ports:
+  "9116/tcp": 9116
+ports_description:
+  "9116/tcp": "Default SNMP Exporter port and web interface"
+
+map:
+  - config:rw
+
+schema:
+  cmdline_extra_args: "str?"
+
+options:
+  cmdline_extra_args: ""

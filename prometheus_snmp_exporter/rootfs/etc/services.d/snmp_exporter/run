@@ -1,0 +1,9 @@
+#!/usr/bin/env bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Prometheus SNMP Exporter
+# Runs the Prometheus SNMP Exporter
+# ==============================================================================
+bashio::log.info "Starting Prometheus SNMP Exporter..."
+
+# Run Prometheus
+exec /usr/local/bin/snmp_exporter --config.file=/config/prometheus_snmp_exporter/snmp.yml $(bashio::config 'cmdline_extra_args' '')
