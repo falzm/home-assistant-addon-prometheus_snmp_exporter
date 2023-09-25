@@ -1,6 +1,6 @@
 # prometheus_snmp_exporter
 
-The Prometheus [SNMP Exporter](https://github.com/prometheus/snmp_exporter) for scraping metrics from SNMP-compatible devices.
+Prometheus [SNMP Exporter](https://github.com/prometheus/snmp_exporter) for scraping metrics from SNMP-compatible devices.
 
 ## Installation
 
