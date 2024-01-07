@@ -1,6 +1,7 @@
-# prometheus_snmp_exporter
+# prometheus\_snmp\_exporter
 
 Prometheus [SNMP Exporter](https://github.com/prometheus/snmp_exporter) for scraping metrics from SNMP-compatible devices.
+
 
 ## Installation
 
@@ -9,15 +10,13 @@ Prometheus [SNMP Exporter](https://github.com/prometheus/snmp_exporter) for scra
 1. Optional - Check the `Configuration` tab of the add-on to make any changes you'd like.
 1. Start the add-on.
 1. Check the `Logs` tab of the add-on to see if everything went well.
-1. To verify the metrics are available, visit `http://your_home_assistant_ip_address:9116/metrics` in your browser, or use curl: `curl -X GET http://your_home_assistant_ip_address:9116/metrics`.
+1. To verify the metrics are available, visit `http://your_home_assistant_ip_address:9116/metrics` in your browser, or use [curl](https://curl.se/): `curl -X GET http://your_home_assistant_ip_address:9116/metrics`.
+
 
 ## Configuration
 
 By default, Prometheus SNMP Exporter listens on TCP port 9116.
 
-### Command-line arguments
-
-This option allows you to pass command-line arguments directly to Prometheus SNMP Exporter. This is particularly useful to adjust which [collectors](https://github.com/prometheus/snmp_exporter/#collectors) run. For example, to disable all collectors except the `cpu` collector, you can use this string: `--collector.disable-defaults --collector.cpu`.
 
 ## Usage with Prometheus server
 
@@ -26,17 +25,16 @@ Add the following to the `/etc/prometheus/prometheus.yml` config file on your Pr
 ```
 scrape_configs:
   ...
-  ...
-  ...
-  - job_name: 'homeassistant'
+  - job_name: 'snmp'
     static_configs:
-    - targets: ['your_home_assistant_ip_address:9116']
-```
-
-The following Prometheus query should return data:
-
-```
-snmp_uname_info{job="homeassistant"}
+      - targets:
+        - 192.168.1.1
+        - 192.168.1.2
+        - 192.168.1.3
+    metrics_path: /snmp
+    params:
+      auth: [public_v2]
+      module: [if_mib]
 ```
 
 ## License
